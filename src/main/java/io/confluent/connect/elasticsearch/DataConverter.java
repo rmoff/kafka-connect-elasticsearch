@@ -118,15 +118,18 @@ public class DataConverter {
     boolean topicIgnoreSchema;
 
     if (topicConfigs.containsKey(topic)) {
+      log.trace("Topic found in topicConfigs");
       TopicConfig topicConfig = topicConfigs.get(topic);
       index = topicConfig.getIndex();
       topicIgnoreKey = topicConfig.ignoreKey();
       topicIgnoreSchema = topicConfig.ignoreSchema();
     } else {
+      log.trace("Topic not found in topicConfigs");
       index = topic;
       topicIgnoreKey = ignoreKey;
       topicIgnoreSchema = ignoreSchema;
     }
+    log.trace("Config values: index {} / ignoreKey {} / ignoreSchema {}", index,topicIgnoreKey, topicIgnoreSchema);
 
     if (topicIgnoreKey) {
       id = topic + "+" + String.valueOf(partition) + "+" + String.valueOf(offset);
