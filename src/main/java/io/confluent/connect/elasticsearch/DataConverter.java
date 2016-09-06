@@ -129,7 +129,7 @@ public class DataConverter {
       topicIgnoreKey = ignoreKey;
       topicIgnoreSchema = ignoreSchema;
     }
-    log.trace("Config values: index {} / ignoreKey {} / ignoreSchema {}", index,topicIgnoreKey, topicIgnoreSchema);
+    log.trace("Config values: index {} / ignoreKey {} / ignoreSchema {}", index, topicIgnoreKey, topicIgnoreSchema);
 
     if (topicIgnoreKey) {
       id = topic + "+" + String.valueOf(partition) + "+" + String.valueOf(offset);
